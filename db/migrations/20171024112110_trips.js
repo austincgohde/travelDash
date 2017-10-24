@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
       .onDelete("CASCADE")
       .index();
     table.string("title");
+    table.string("destination");
     table.string("desciption");
     table.integer("flight_id")
       .notNullable()

@@ -48,5 +48,17 @@ module.exports = {
     res.render("trips", bunch of shit and some more shit with it all)
   },
 
-  createTrip
+  createTrip: (req, res) => {
+    knex("trips")
+      .insert({
+        user_id: req.params.id,
+        title: req.body.title,
+        destination: req.body.destination,
+        description: req.body.description,
+        flight_id: **** COME BACK TO ME ****
+      }, "*")
+      .then(() => {
+        res.redirect("/trips")
+      })
+  }
 }

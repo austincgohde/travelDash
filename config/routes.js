@@ -7,7 +7,7 @@ module.exports = function(app){
 
   app.get("/login", trips.login);
 
-  app.post("/register", trips.createUser);
+  app.post("/create", trips.createUser);
 
   app.post("/login", trips.check);
 
@@ -15,17 +15,19 @@ module.exports = function(app){
 
   app.post("/airline/login", airlines.check);
 
-  app.post("/register/airline", airlines.createAirline)
+  app.post("/airline/create", airlines.createAirline)
 
   app.use(userAuth);
 
   app.get("/trips", trips.dashboard);
 
-  app.post("/trips", trips.createTrip);
+  app.post("/trips/create", trips.createTrip);
 
   app.use(adminAuth);
 
-  app.get("/airline", airlines.dashboard)
+  app.get("/airline", airlines.dashboard);
+
+  app.post("/flight/create", airlines.createFlight)
 }
 
 let userAuth = (req, res, next) => {

@@ -43,14 +43,32 @@ module.exports = {
   createFlight: (req, res) => {
     knex("flights")
       .insert({
-
+        destination: req.body.destination,
+        arrival: req.body.arrival,
+        airline_id: req.session.admin.id
+      })
+      .then(() => {
+        res.redirect("/airline")
+      })
+      .catch((err) => {
+        console.error(err);
+        res.redirect("/airline")
       })
   },
 
   createAirline: (req, res) => {
     knex("airlines")
       .insert({
-        name: req.
+        airline: req.body.airline,
+        username: req.body.username,
+        password: req.body.password,
+        description: "We are an airline DUH!!!"
+      })
+      .then(() => {
+        res.redirect("/airline/login")
+      })
+      .catch((err) => {
+        console.error(err);
       })
   }
 }

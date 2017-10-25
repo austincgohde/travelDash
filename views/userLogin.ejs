@@ -8,6 +8,7 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="../public/css/style.css"> -->
   </head>
 
   <body>
@@ -21,56 +22,51 @@
   </nav>
   <div class="container">
 
-    <!-- FORM - CREATE NEW COMPANY  -->
     <div class="row col s12">
-      <h5>User Login </h5>
+      <h5>Login or Register to use Travel Dash</h5>
     </div>
 
-    <div class="row">
-      <div class="login-container">
-        <form class="login-user col s12" action="/login" method="post">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="username" id="username" type="text" class="validate" name="username">
-              <label for="username_name">Username</label>
-            </div>
-            <div class="input-field col s6">
-              <input placeholder="password" id="password" type="password" class="validate" name="password">
-              <label for="password">Password</label>
-            </div>
+    <div class="row col s12">
+
+      <div class="row col s6 grey lighten-2">
+        <div class="row col s12">
+          <h5>User Login</h5>
+        </div>
+        <form class="login-user row col s12" action="/login" method="get">
+          <div class="input-field row col s12">
+            <input placeholder="username" id="username" type="text" class="validate" name="username">
+            <label for="username_name">Username</label>
           </div>
-          <div class="row">
+          <div class="input-field row col s12">
+            <input placeholder="password" id="password" type="password" class="validate" name="password">
+            <label for="password">Password</label>
+          </div>
+          <div class="row col s12">
             <input type="Submit" value="Login" class="waves-effect waves-light btn light-blue accent-3">
           </div>
         </form>
-
       </div>
-  </div>
 
-
-  <div class="row col s12">
-    <h5>User Registration</h5>
-  </div>
-
-  <div class="row">
-  <form class="reg-user col s12" action="/register" method="post">
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="username" id="username" type="text" class="validate" name="username">
-        <label for="username_name">Username</label>
+      <div class="row col s6 grey lighten-3">
+        <div class="row col s12">
+          <h5>User Registration</h5>
+        </div>
+        <form class="login-user row col s12" action="/create" method="post">
+          <div class="input-field row col s12">
+            <input placeholder="username" id="username" type="text" class="validate" name="username">
+            <label for="username_name">Username</label>
+          </div>
+          <div class="input-field row col s12">
+            <input placeholder="password" id="password" type="password" class="validate" name="password">
+            <label for="password">Password</label>
+          </div>
+          <div class="row col s12">
+            <input type="submit" value="Register" class="waves-effect waves-light btn light-blue accent-3">
+          </div>
+        </form>
       </div>
-      <div class="input-field col s6">
-        <input placeholder="password" id="password" type="password" class="validate" name="password">
-        <label for="password">Password</label>
-      </div>
+
     </div>
-    <div class="row">
-      <input type="submit" value="Register" class="waves-effect waves-light btn light-blue accent-3">
-    </div>
-  </form>
-</div>
-
-
 
     <!-- END Container -->
   </div>

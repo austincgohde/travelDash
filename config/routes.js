@@ -17,13 +17,13 @@ module.exports = function(app){
 
   app.post("/airline/create", airlines.createAirline)
 
-  app.use(userAuth);
+  // app.use(userAuth);
 
   app.get("/trips", trips.dashboard);
 
   app.post("/trips/create", trips.createTrip);
 
-  app.use(adminAuth);
+  // app.use(adminAuth);
 
   app.get("/airline", airlines.dashboard);
 

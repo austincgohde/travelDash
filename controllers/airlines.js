@@ -1,5 +1,4 @@
-const knex = require('knex');
-const kpop = require("knex-populate");
+const knex = require('../db/knex.js');
 
 module.exports = {
 
@@ -9,7 +8,7 @@ module.exports = {
 
   check: (req, res) => {
     knex("airlines")
-      .where("name", req.body.username)
+      .where("username", req.body.username)
       .then((result) => {
         let airline = result[0];
         if(req.body.password === airline.password) {
@@ -28,12 +27,11 @@ module.exports = {
   },
 
   dashboard: (req, res) => {
-    knex.raw(`SELECT flights.id, flights.departure, flights.arrival FROM flights
-        JOIN airlines
-          ON airlines.id = flights.airline_id
-          WHERE airlines.id = ${req.session.admin.id}`)
+    console.log("HELLO");
+    knex.raw(`SELECT flights.id, flights.departure, flights.arrival, airlines.airline FROM flights JOIN airlines ON airlines.id = flights.airline_id WHERE airlines.id = ${req.session.admin.id}`)
       .then((result) => {
-        res.render("airline", { flights: result})
+        console.log(result.rows);
+        res.render("airline", { flights: result.rows })
       })
       .catch((err) => {
         console.error(err);
@@ -43,7 +41,7 @@ module.exports = {
   createFlight: (req, res) => {
     knex("flights")
       .insert({
-        destination: req.body.destination,
+        departure: req.body.departure,
         arrival: req.body.arrival,
         airline_id: req.session.admin.id
       })

@@ -2,7 +2,7 @@ module.exports = {
   development: {
       client: 'pg',
       connection: {
-        database: "users",
+        database: "travelDash",
         host: "localhost"
       },
       migrations: {
@@ -19,7 +19,7 @@ module.exports = {
           directory: __dirname + '/db/migrations',
         },
       seeds: {
-          directory: __dirname + '/db/seeds/production',
+          directory: __dirname + '/db/seeds',
         },
     },
 };

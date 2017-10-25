@@ -13,4 +13,10 @@ module.exports = function(app){
 
   app.get("/trips", trips.dashboard);
 
+  app.post("/trips", trips.createTrip);
+
+  app.get("/airline/login", airlines.login);
+
+  app.post("/airline/login", airlines.check);
+
 }

@@ -28,6 +28,15 @@ module.exports = {
   },
 
   dashboard: (req, res) => {
-    knex("")
+    knex.raw(`SELECT flights.id, flights.departure, flights.arrival FROM flights
+        JOIN airlines
+          ON airlines.id = flights.airline_id
+          WHERE airlines.id = ${req.session.admin.id}`)
+      .then((result) => {
+        res.render("airline", { flights: result})
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 }

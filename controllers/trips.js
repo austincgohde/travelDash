@@ -9,7 +9,7 @@ module.exports = {
   createUser: (req, res) => {
     knex("users")
       .insert({
-        name: req.body.usename,
+        name: req.body.username,
         password: req.body.password
       })
       .then(() => {
@@ -28,7 +28,7 @@ module.exports = {
 
   check: (req, res) => {
     knex("users")
-      .where("username", req.body.username)
+      .where("name", req.body.username)
       .then((result) => {
         let user = result[0];
         if(user.password === req.body.password) {
@@ -43,9 +43,21 @@ module.exports = {
   },
 
   dashboard: (req, res) => {
-    // LOGIC FOR JOINS BETWEEN USERS AND TRIPS ALSO FLIGHTS AND AIRLINES
-    // OR A COMPLETE JOIN WITH ALL 4
-    res.render("trips", bunch of shit and some more shit with it all)
+    knex.raw(`SELECT trips.id, trips.title, trips.destination, trips.description, flights.id, flights.departure, flights.arrival, airlines.name
+      FROM trips
+        JOIN users ON users.id = trips.user_id
+        WHERE users.id = ${req.session.user.id}
+        JOIN flights ON flights.id = trips.flight_id
+        JOIN airlines ON airlines.id = flights.airline_id;`)
+      .then((result) => {
+        if(result.length === 1) {
+          res.render("trips", { trips: result[0] })
+        } else {
+          res.render("trips", { trips: result })
+        }
+      })
+      .catch(err => console.error(err))
+
   },
 
   createTrip: (req, res) => {

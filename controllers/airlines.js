@@ -12,8 +12,10 @@ module.exports = {
       .then((result) => {
         let airline = result[0];
         if(req.body.password === airline.password) {
-          req.session.admin = {id: airline.id, name: airline.airline}
-          res.redirect("/airline")
+          req.session.admin = {id: airline.id, airline: airline.airline};
+          req.session.save(() => {
+            res.redirect("/airline")
+          })
         } else {
           req.session.message = "You entered an invalid username or password"
           res.redirect("/airline/login")

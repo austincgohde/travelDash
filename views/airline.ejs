@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Airline</title>
+    <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
+  	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="../public/css/style.css">
+  </head>
+
+  <body>
+    <nav>
+    <div class="nav-wrapper grey darken-3">
+      <a href="#" class="brand-logo center grey darken-3 light-blue-text text-accent-3">Travel Dash</a>
+      <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+      </ul> -->
+    </div>
+  </nav>
+  <div class="container">
+
+    <!-- FORM - CREATE NEW COMPANY  -->
+    <div class="row col s12">
+      <h5>Upcoming Flights </h5>
+    </div>
+    <div class="upcoming-flights">
+      <table>
+      <thead>
+        <tr>
+            <th>Airline</th>
+            <th>Flight ID</th>
+            <th>Departure City/Country</th>
+            <th>Arrival City/Country</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>United Airlines</td>
+          <td>UA1</td>
+          <td>Los Angeles, USA</td>
+          <td>San Jose, Costa Rica</td>
+        </tr>
+        <tr>
+          <td>United Airlines</td>
+          <td>UA2</td>
+          <td>Newark, USA</td>
+          <td>Paris, France</td>
+        </tr>
+        <tr>
+          <td>United Airlines</td>
+          <td>UA3</td>
+          <td>Phoenix, USA</td>
+          <td>Miami, USA</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="row col s12">
+      <h5>Create New Flight</h5>
+    </div>
+
+    <div class="row">
+      <form class="col s12">
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Trip Title" id="departure" type="text" class="validate" name="departure">
+            <label for="departure">Departure City/Country</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Destination" id="arrival" type="text" class="validate" name="arrival">
+            <label for="arrival">Arrival City/Country</label>
+          </div>
+        </div>
+        <div class="row new-airline-btn">
+
+        </div>
+
+      </form>
+    </div>
+
+    <!-- END Container -->
+  </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  	<!-- Compiled and minified JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+    <!-- insert JS script  -->
+</html>

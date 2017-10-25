@@ -1,6 +1,5 @@
-//Update the name of the controller below and rename the file.
-const trips = require("../controllers/trips.js")
-const airlines = require('../controllers/airlines');
+const trips = require('../controllers/trips.js');
+const airlines = require('../db/airlines.js');
 
 module.exports = function(app){
 

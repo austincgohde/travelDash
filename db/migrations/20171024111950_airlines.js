@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("airlines", (table) => {
     table.increments();
-    table.string("name");
+    table.string("airline");
     table.string("username");
     table.string("password");
     table.string("description");

@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
       .index();
     table.string("title");
     table.string("destination");
-    table.string("desciption");
+    table.string("description");
     table.integer("flight_id")
       .notNullable()
       .references("id")

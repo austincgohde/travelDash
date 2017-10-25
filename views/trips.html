@@ -73,29 +73,16 @@
           <th>Description</th>
       </tr>
     </thead>
-
     <tbody>
+      <% for(let i=0; i<trips.length; i++) { %>
       <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
+        <td><%= trips[i].id %></td>
+        <td><%= trips[i].title %></td>
+        <td><%= trips[i].airline %></td>
+        <td><%= trips[i].destination %></td>
+        <td><%= trips[i].description %></td>
       </tr>
-      <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
-      </tr>
-      <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
-      </tr>
+      <% } %>
     </tbody>
   </table>
   </div>

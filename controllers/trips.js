@@ -50,11 +50,7 @@ module.exports = {
         JOIN flights ON flights.id = trips.flight_id
         JOIN airlines ON airlines.id = flights.airline_id;`)
       .then((result) => {
-        if(result.length === 1) {
-          res.render("trips", { trips: result[0] })
-        } else {
           res.render("trips", { trips: result })
-        }
       })
       .catch(err => console.error(err))
 

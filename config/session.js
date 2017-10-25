@@ -1,5 +1,5 @@
 const session = require('express-session');
-const KnexSessionStore = require('connect-express-knex')(session);
+const KnexSessionStore = require('connect-session-knex')(session);
 const knex = require("../db/knex.js");
 
 module.exports = (app) => {

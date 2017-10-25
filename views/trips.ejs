@@ -27,7 +27,7 @@
     </div>
 
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" action="/trip/create" method="post">
 
         <div class="row">
           <div class="input-field col s6">
@@ -46,12 +46,12 @@
             <label for="description">Description</label>
           </div>
           <div class="input-field col s6">
-            <select id="flightList">
+            <% for(let i=0; i<flights.length; i++){ %>
+            <select id="flightList" name="flights">
               <option value="" disabled selected>Choose Your Flight</option>
-              <option value="flight1">Flight 1</option>
-              <option value="flight2">Flight 2</option>
-              <option value="flight3">Flight 3</option>
+              <option value="<%= flights[i].id %>"><%= flights[i].id %> - <%= flights[i].departure %> / <%= flights[i].arrival %></option>
             </select>
+            <% } %>
             <label>Flight List</label>
           </div>
         </div>
@@ -73,29 +73,16 @@
           <th>Description</th>
       </tr>
     </thead>
-
     <tbody>
+      <% for(let i=0; i<trips.length; i++) { %>
       <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
+        <td><%= trips[i].id %></td>
+        <td><%= trips[i].title %></td>
+        <td><%= trips[i].airline %></td>
+        <td><%= trips[i].destination %></td>
+        <td><%= trips[i].description %></td>
       </tr>
-      <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
-      </tr>
-      <tr>
-        <td>Trip ID</td>
-        <td>Trip Title</td>
-        <td>American Airlines</td>
-        <td>Destination</td>
-        <td>Description of trip...</td>
-      </tr>
+      <% } %>
     </tbody>
   </table>
   </div>

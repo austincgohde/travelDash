@@ -37,13 +37,15 @@
       </thead>
 
       <tbody>
+        <% for(let i=0; i<flights.length; i++){ %>
         <tr>
-          <td>United Airlines</td>
-          <td>UA1</td>
-          <td>Los Angeles, USA</td>
-          <td>San Jose, Costa Rica</td>
+          <td><%= flights[i].airline %></td>
+          <td><%= flights[i].flight_id %></td>
+          <td><%= flights[i].departure %></td>
+          <td><%= flights[i].arrival %></td>
         </tr>
-        <tr>
+        <% } %>
+        <!-- <tr>
           <td>United Airlines</td>
           <td>UA2</td>
           <td>Newark, USA</td>
@@ -54,7 +56,7 @@
           <td>UA3</td>
           <td>Phoenix, USA</td>
           <td>Miami, USA</td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
     </div>

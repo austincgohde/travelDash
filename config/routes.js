@@ -1,5 +1,5 @@
 const trips = require('../controllers/trips.js');
-const airlines = require('../db/airlines.js');
+const airlines = require('../controllers/airlines.js');
 
 module.exports = function(app){
 

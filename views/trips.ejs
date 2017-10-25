@@ -7,7 +7,8 @@
   	<!-- Compiled and minified CSS -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<link rel="stylesheet" href="../public/css/style.css">
+  	<link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="../public/css/style.css"> -->
   </head>
 
   <body>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="row">
-      <form class="col s12" action="/trip/create" method="post">
+      <form class="col s12" action="/trips/create" method="post">
 
         <div class="row">
           <div class="input-field col s6">
@@ -46,14 +47,17 @@
             <label for="description">Description</label>
           </div>
           <div class="input-field col s6">
-            <% for(let i=0; i<flights.length; i++){ %>
             <select id="flightList" name="flights">
               <option value="" disabled selected>Choose Your Flight</option>
-              <option value="<%= flights[i].id %>"><%= flights[i].id %> - <%= flights[i].departure %> / <%= flights[i].arrival %></option>
+              <% for(let i=0; i<flights.length; i++){ %>
+              <option value="<%= flights[i].id %>"><%= flights[i].airline %> (<%= flights[i].id %>) - <%= flights[i].departure %> / <%= flights[i].arrival %></option>
+              <% } %>
             </select>
-            <% } %>
             <label>Flight List</label>
           </div>
+        </div>
+        <div class="row col s12">
+          <input type="Submit" name="create-trip" value="Create Trip">
         </div>
 
       </form>
@@ -94,7 +98,7 @@
   	<!-- Compiled and minified JavaScript -->
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>
-    <script type="text/javascript" src="../public/JS/app.js">
+    <script type="text/javascript" src="./JS/app.js">
 
     </script>
 </html>

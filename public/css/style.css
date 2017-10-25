@@ -14,21 +14,25 @@
 }
 
 .login-user {
-  border: 1px solid black;
+  /*border: 1px solid grey;
+  border-radius: 4px;*/
   margin: 10px;
 }
 
 .reg-user {
-  border: 1px solid black;
+  /*border: 1px solid grey;
+  border-radius: 4px;*/
   margin: 10px;
 }
 
 .login-airline {
-  border: 1px solid black;
+  /*border: 1px solid grey;
+  border-radius: 4px;*/
   margin: 10px;
 }
 
 .reg-airline {
-  border: 1px solid black;
+  /*border: 1px solid grey;
+  border-radius: 4px;*/
   margin: 10px;
 }

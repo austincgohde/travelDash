@@ -11,6 +11,6 @@ module.exports = function(app){
 
   app.post("/login", trips.check);
 
-
+  app.get("/trips", trips.dashboard);
 
 }

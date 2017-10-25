@@ -50,7 +50,13 @@ module.exports = {
         JOIN flights ON flights.id = trips.flight_id
         JOIN airlines ON airlines.id = flights.airline_id;`)
       .then((result) => {
-          res.render("trips", { trips: result })
+          let trips = result;
+          knex.raw(`SELECT flights.id, flights.departure, flights.arrival, airlines.name
+            FROM flights
+              JOIN airlines ON airlines.id = flights.airline_id`)
+            .then((result) => {
+              res.render("trips", { trips: trips, flights: result})
+            })
       })
       .catch(err => console.error(err))
 
@@ -63,7 +69,7 @@ module.exports = {
         title: req.body.title,
         destination: req.body.destination,
         description: req.body.description,
-        flight_id: **** COME BACK TO ME ****
+        flight_id: req.body.flights
       }, "*")
       .then(() => {
         res.redirect("/trips")

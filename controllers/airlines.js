@@ -13,8 +13,8 @@ module.exports = {
       .then((result) => {
         let airline = result[0];
         if(req.body.password === airline.password) {
-          req.session.admin = {id: airline.id, name: airline.name}
-          res.redirect("/airline/" + airline.id)
+          req.session.admin = {id: airline.id, name: airline.airline}
+          res.redirect("/airline")
         } else {
           req.session.message = "You entered an invalid username or password"
           res.redirect("/airline/login")
@@ -37,6 +37,20 @@ module.exports = {
       })
       .catch((err) => {
         console.error(err);
+      })
+  },
+
+  createFlight: (req, res) => {
+    knex("flights")
+      .insert({
+
+      })
+  },
+
+  createAirline: (req, res) => {
+    knex("airlines")
+      .insert({
+        name: req.
       })
   }
 }

@@ -44,10 +44,10 @@ module.exports = {
 
   dashboard: (req, res) => {
     console.log(req.session.user.id);
-    knex.raw(`SELECT trips.id, trips.title, trips.destination, trips.description, flights.id, flights.departure, flights.arrival, airlines.name FROM trips JOIN users ON users.id = trips.user_id JOIN flights ON flights.id = trips.flight_id JOIN airlines ON airlines.id = flights.airline_id WHERE users.id = ${req.session.user.id} ;`)
+    knex.raw(`SELECT trips.id, trips.title, trips.destination, trips.description, flights.id, flights.departure, flights.arrival, airlines.airline FROM trips JOIN users ON users.id = trips.user_id JOIN flights ON flights.id = trips.flight_id JOIN airlines ON airlines.id = flights.airline_id WHERE users.id = ${req.session.user.id} ;`)
       .then((result) => {
           let trips = result;
-          knex.raw(`SELECT flights.id, flights.departure, flights.arrival, airlines.name FROM flights JOIN airlines ON airlines.id = flights.airline_id;`)
+          knex.raw(`SELECT flights.id, flights.departure, flights.arrival, airlines.airline FROM flights JOIN airlines ON airlines.id = flights.airline_id;`)
             .then((result) => {
               res.render("trips", { trips: trips, flights: result})
             })

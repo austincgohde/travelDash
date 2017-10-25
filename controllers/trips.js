@@ -33,7 +33,9 @@ module.exports = {
         let user = result[0];
         if(user.password === req.body.password) {
           req.session.user = { id: user.id, name: user.name };
-          res.redirect("/trips");
+          req.session.save(() => {
+            res.redirect("/trips");
+          })
         }
       })
       .catch((err) => {
